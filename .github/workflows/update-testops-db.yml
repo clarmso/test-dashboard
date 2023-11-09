@@ -33,19 +33,19 @@ jobs:
             port: ${{ secrets.CLOUD_SQL_DATABASE_PORT }}
 
         - name: Install requirements
-            run: pip install -r requirements.txt
+          run: pip install -r requirements.txt
       
         - name: Set env vars
-            run: |
-              echo "CLOUD_SQL_DATABASE_USERNAME=${{ secrets.CLOUD_SQL_DATABASE_USERNAME }}" >> $GITHUB_ENV
-              echo "CLOUD_SQL_DATABASE_PASSWORD=${{ secrets.CLOUD_SQL_DATABASE_PASSWORD }}" >> $GITHUB_ENV
-              echo "CLOUD_SQL_DATABASE_NAME=production" >> $GITHUB_ENV
-              echo "CLOUD_SQL_DATABASE_PORT=${{ secrets.CLOUD_SQL_DATABASE_PORT }}" >> $GITHUB_ENV
-              echo "TESTRAIL_HOST=${{ secrets.TESTRAIL_HOST }}" >> $GITHUB_ENV
-              echo "TESTRAIL_USERNAME=${{ secrets.TESTRAIL_USERNAME }}" >> $GITHUB_ENV
-              echo "TESTRAIL_PASSWORD=${{ secrets.TESTRAIL_PASSWORD }}" >> $GITHUB_ENV
-              echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+          run: |
+            echo "CLOUD_SQL_DATABASE_USERNAME=${{ secrets.CLOUD_SQL_DATABASE_USERNAME }}" >> $GITHUB_ENV
+            echo "CLOUD_SQL_DATABASE_PASSWORD=${{ secrets.CLOUD_SQL_DATABASE_PASSWORD }}" >> $GITHUB_ENV
+            echo "CLOUD_SQL_DATABASE_NAME=production" >> $GITHUB_ENV
+            echo "CLOUD_SQL_DATABASE_PORT=${{ secrets.CLOUD_SQL_DATABASE_PORT }}" >> $GITHUB_ENV
+            echo "TESTRAIL_HOST=${{ secrets.TESTRAIL_HOST }}" >> $GITHUB_ENV
+            echo "TESTRAIL_USERNAME=${{ secrets.TESTRAIL_USERNAME }}" >> $GITHUB_ENV
+            echo "TESTRAIL_PASSWORD=${{ secrets.TESTRAIL_PASSWORD }}" >> $GITHUB_ENV
+            echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
       
         - name: Update DB - test coverage
-            if: ${{ inputs.is_update_db }}
-            run: python ./__main__.py --report-type test-case-coverage --project ${{ inputs.project_name }}
+          if: ${{ inputs.is_update_db }}
+          run: python ./__main__.py --report-type test-case-coverage --project ${{ inputs.project_name }}
