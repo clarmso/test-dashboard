@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    uses: clarmso/test-dashboard/.github/workflows/update-testops-db.yml@reusable-workflow
+    uses: ./.github/workflows/update-testops-db.yml
     with:
       project_name: "ALL"
       frequency: "Daily"
