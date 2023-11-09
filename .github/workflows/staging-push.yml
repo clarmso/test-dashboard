@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    uses: mozilla-mobile/test-dashboard/.github/workflows/update-testops-db.yml@main
+    uses: mozilla-mobile/test-dashboard/.github/workflows/update-testops-db.yml@reusable-workflow
     with:
       project_name: "fenix"
       frequency: "Daily"
