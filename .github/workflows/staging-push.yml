@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     uses: mozilla-mobile/test-dashboard/.github/workflows/update-testops-db.yml
-      with:
-        project_name: "fenix"
-        frequency: "Daily"
-        is_update_db: true
+    with:
+      project_name: "fenix"
+      frequency: "Daily"
+      is_update_db: true
