@@ -5,10 +5,10 @@ on:
   schedule:
     - cron:  "0 4 * * 6/2" 
 
-  jobs:
-    deploy:
-      uses: mozilla-mobile/test-dashboard/.github/workflows/update-testops-db.yml@reusable-workflow
-      with:
-        project_name: "ALL"
-        frequency: "Daily"
-        is_update_db: false
+jobs:
+  deploy:
+    uses: mozilla-mobile/test-dashboard/.github/workflows/update-testops-db.yml@reusable-workflow
+    with:
+      project_name: "ALL"
+      frequency: "Daily"
+      is_update_db: false
